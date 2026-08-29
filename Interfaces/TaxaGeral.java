@@ -1,5 +1,5 @@
 package Exercicios.Interfaces;
 
 public interface TaxaGeral {
-    double taxa(double taxa);
+    double calcularTaxa(double taxa);
 }

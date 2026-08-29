@@ -10,7 +10,7 @@ public class BrasilTaxa implements TaxaGeral {
     }
 
     @Override
-    public double taxa(double taxa) {
+    public double calcularTaxa(double taxa) {
         return (taxa / 100) + 1; 
     }
     

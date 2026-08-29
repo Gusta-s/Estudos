@@ -43,10 +43,10 @@ public class Fatura {
     //eu sei que isso tá feio, mas é 00:45 e eu tô caindo de sono
     public double processarFatura(double pricePerDay, double pricePerHour){
         if (pricePerDay <= 24) {
-            return(pricePerDay + pricePerHour) * taxa.taxa(20) + pricePerDay + pricePerHour;
+            return(pricePerDay + pricePerHour) * taxa.calcularTaxa(20) + pricePerDay + pricePerHour;
         }
         else {
-            return (pricePerDay + pricePerHour) * taxa.taxa(10) + pricePerDay + pricePerHour;
+            return (pricePerDay + pricePerHour) * taxa.calcularTaxa(10) + pricePerDay + pricePerHour;
         }
     }
     
