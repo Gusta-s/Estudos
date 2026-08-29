@@ -1,5 +1,5 @@
 package Exercicios.Interfaces;
-public class BrasilTaxa {
+public class BrasilTaxa implements TaxaGeral {
     private double taxa;
 
     public BrasilTaxa() {
@@ -9,8 +9,9 @@ public class BrasilTaxa {
         return taxa;
     }
 
-    public void setTaxa(double taxa) {
-        this.taxa = (taxa / 100);
+    @Override
+    public double taxa(double taxa) {
+        return (taxa / 100) + 1; 
     }
     
 }

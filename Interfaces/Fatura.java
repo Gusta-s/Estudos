@@ -2,12 +2,12 @@ package Exercicios.Interfaces;
 public class Fatura {
     private double pricePerHour;
     private double pricePerDay;
-    private BrasilTaxa taxaBrasil;
+    private TaxaGeral taxa;
 
-    public Fatura(double pricePerHour, double pricePerDay, BrasilTaxa taxaBrasil) {
+    public Fatura(double pricePerHour, double pricePerDay, TaxaGeral taxa) {
         this.pricePerHour = pricePerHour;
         this.pricePerDay = pricePerDay;
-        this.taxaBrasil = taxaBrasil;
+        this.taxa = taxa;
     }
 
     public Fatura(double pricePerHour, double pricePerDay) {
@@ -33,17 +33,21 @@ public class Fatura {
         this.pricePerDay = pricePerDay;
     }
 
-    public BrasilTaxa getTaxaBrasil() {
-        return taxaBrasil;
+    public TaxaGeral gettaxa() {
+        return taxa;
     }
-
-    public void setTaxaBrasil(BrasilTaxa taxaBrasil) {
-        this.taxaBrasil = taxaBrasil;
+    public void setTaxa(TaxaGeral taxa){
+        this.taxa = taxa;
     }
 
     //eu sei que isso tá feio, mas é 00:45 e eu tô caindo de sono
-    public double processarFatura(double pricePerDay, double pricePerHour, BrasilTaxa taxaBrasil){
-        return (pricePerDay + pricePerHour) * taxaBrasil.getTaxa() + pricePerDay + pricePerHour;
+    public double processarFatura(double pricePerDay, double pricePerHour){
+        if (pricePerDay <= 24) {
+            return(pricePerDay + pricePerHour) * taxa.taxa(20) + pricePerDay + pricePerHour;
+        }
+        else {
+            return (pricePerDay + pricePerHour) * taxa.taxa(10) + pricePerDay + pricePerHour;
+        }
     }
     
 }
