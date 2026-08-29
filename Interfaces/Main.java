@@ -1,4 +1,4 @@
-package Exercicos;
+package Exercicos.Interfaces;
 public class Main {
 
     
