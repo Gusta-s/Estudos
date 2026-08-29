@@ -1,5 +1,4 @@
-package Exercicos.Interfaces;
-
+package Exercicios.Interfaces;
 public class BrasilTaxa {
     private double taxa;
 

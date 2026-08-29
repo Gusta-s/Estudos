@@ -1,4 +1,4 @@
-package Exercicos.Interfaces;
+package Exercicios.Interfaces;
 public class Main {
     public static void main(String[] args) {
         Fatura f = new Fatura();

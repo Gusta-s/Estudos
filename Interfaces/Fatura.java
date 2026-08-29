@@ -1,4 +1,4 @@
-package Exercicos.Interfaces;
+package Exercicios.Interfaces;
 public class Fatura {
     private double pricePerHour;
     private double pricePerDay;
