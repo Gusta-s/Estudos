@@ -4,7 +4,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
 driver = webdriver.Firefox()
-actions = ActionChains(driver)
 driver.get("https://carreiras.agibank.com.br/vagas")
 assert "Vagas - Agibank Carreiras" in driver.title
 
@@ -18,7 +17,8 @@ subMenu_Cidade = driver.find_element(By.XPATH, "/html/body/main/section[2]/div/d
 subMenu_Cidade.send_keys("Campinas")
 #Posição da cidade de Campinas
 cidade = driver.find_element(By.XPATH,"/html/body/main/section[2]/div/div/aside/div/div[2]/div/div/div[2]/div/div/button")
-actions.move_to_element(cidade).click().perform()
+driver.execute_script("arguments[0].scrollIntoView({block: 'center'});",cidade)
+cidade.click()
 
 
 # Filtre o departamento 
@@ -29,14 +29,17 @@ subMenu_departamento = driver.find_element(By.XPATH, "/html/body/main/section[2]
 subMenu_departamento.send_keys("Tecnologia")
 #posição tecnologia
 tecnologia = driver.find_element(By.XPATH,"/html/body/main/section[2]/div/div/aside/div/div[3]/div/div/div[2]/div/button")
-actions.move_to_element(tecnologia).click().perform()
+driver.execute_script("arguments[0].scrollIntoView({block: 'center'});",tecnologia)
+tecnologia.click()
 
 # Pesquise por "Estágio"
 menu_oportunidade = driver.find_element(By.XPATH, "/html/body/main/section[2]/div/div/aside/div/div[1]/div/input")
 menu_oportunidade.click()
 menu_oportunidade.send_keys("Estágio")
-assert "Nenhuma vaga aberta encontrada com os filtros selecionados." not in driver.title
-print("Sem vagas de estágio :(")
-menu_oportunidade = driver.find_element(By.XPATH, "/html/body/main/section[2]/div/div/aside/div/div[1]/div/input")
-menu_oportunidade.click()
-menu_oportunidade.send_keys("Formação")
+vaga_result = driver.find_element(By.XPATH,"/html/body/main/section[2]/div/div/div/div/div[2]/div[1]/p[1]")
+sem_vaga = vaga_result.text
+if sem_vaga == "Nenhuma vaga aberta encontrada com os filtros selecionados.":
+    print("=====================================================\n Infelizmente não foi encontrado vagas para estágio 😞\n=====================================================")
+    print("Pesquisando por: Formação...\nAguarde...")
+    menu_oportunidade.send_keys(Keys.CONTROL,"a")
+    menu_oportunidade.send_keys("Formação")
