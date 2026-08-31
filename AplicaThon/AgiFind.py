@@ -30,3 +30,13 @@ subMenu_departamento.send_keys("Tecnologia")
 #posição tecnologia
 tecnologia = driver.find_element(By.XPATH,"/html/body/main/section[2]/div/div/aside/div/div[3]/div/div/div[2]/div/button")
 actions.move_to_element(tecnologia).click().perform()
+
+# Pesquise por "Estágio"
+menu_oportunidade = driver.find_element(By.XPATH, "/html/body/main/section[2]/div/div/aside/div/div[1]/div/input")
+menu_oportunidade.click()
+menu_oportunidade.send_keys("Estágio")
+assert "Nenhuma vaga aberta encontrada com os filtros selecionados." not in driver.title
+print("Sem vagas de estágio :(")
+menu_oportunidade = driver.find_element(By.XPATH, "/html/body/main/section[2]/div/div/aside/div/div[1]/div/input")
+menu_oportunidade.click()
+menu_oportunidade.send_keys("Formação")
