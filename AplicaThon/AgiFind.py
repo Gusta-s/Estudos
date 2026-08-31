@@ -40,6 +40,5 @@ vaga_result = driver.find_element(By.XPATH,"/html/body/main/section[2]/div/div/d
 sem_vaga = vaga_result.text
 if sem_vaga == "Nenhuma vaga aberta encontrada com os filtros selecionados.":
     print("=====================================================\n Infelizmente não foi encontrado vagas para estágio 😞\n=====================================================")
-    print("Pesquisando por: Formação...\nAguarde...")
-    menu_oportunidade.send_keys(Keys.CONTROL,"a")
-    menu_oportunidade.send_keys("Formação")
+else:
+    print("=============================================\n UMA OPORTUNIDADE FOI ENCONTRADA CORRE !!!! 😃\n=============================================")
