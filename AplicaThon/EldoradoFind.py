@@ -20,9 +20,3 @@ cidade = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/section[3]/di
 cidade.click()
 cidade.send_keys("Campinas")
 cidade.send_keys(Keys.TAB)
-
-#Filtre o tipo de vaga 
-tipo_vaga = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/section[3]/div[2]/form[2]/div[2]/div/div/div[1]/div[2]")
-tipo_vaga.click()
-tipo_vaga.send_keys("Estágio")
-tipo_vaga.send_keys(Keys.TAB)
