@@ -37,3 +37,12 @@ driver.execute_script("arguments[0].scrollIntoView({block: 'center'});",area)
 area.click()
 area.send_keys("Software")
 area.send_keys(Keys.TAB)
+
+#Quantidade de vagas
+vagas = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/section[3]/div[3]/div[2]")
+quant_vagas = vagas.text
+
+if quant_vagas == "8 vagas":
+    print("=====================================================\n Infelizmente não tem novas vagas para estágio 😞\n=====================================================")
+else:
+    print("=============================================\n UMA OPORTUNIDADE FOI ENCONTRADA CORRE !!!! 😃\n=============================================")
