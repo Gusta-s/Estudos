@@ -26,3 +26,9 @@ tipo_vaga = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/section[3]
 tipo_vaga.click()
 tipo_vaga.send_keys("Estágio")
 tipo_vaga.send_keys(Keys.TAB)
+
+#Selecione área da vaga 
+area = driver.find_element(By.XPATH, "/html/body/div[1]/div/main/section[3]/div[2]/form[2]/div[3]/div/div/div[1]/div[2]")
+area.click()
+area.send_keys("Software")
+area.send_keys(Keys.TAB)
